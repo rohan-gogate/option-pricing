@@ -15,5 +15,5 @@ class OptionPricingModel(nn.Module):
             nn.Linear(hidden_dim, output_dim)  
         )
 
-        def forward(self, x):
-            return self.net(x)
+    def forward(self, x):
+        return self.net(x)
