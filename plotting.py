@@ -38,13 +38,12 @@ plt.title("Predicted vs True Prices")
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
+plt.savefig("figures/PredictedvsTruePrices.png", dpi=300, bbox_inches='tight')
 plt.show()
 
-# Calculate errors
-error_mc = y_pred[:, 0] - y_true[:, 0]         # Monte Carlo error
-error_binomial = y_pred[:, 1] - y_true[:, 1]   # Binomial error
+error_mc = y_pred[:, 0] - y_true[:, 0]         
+error_binomial = y_pred[:, 1] - y_true[:, 1]  
 
-# Plot Monte Carlo error
 plt.figure(figsize=(8,6))
 plt.scatter(y_true[:, 0], error_mc, alpha=0.5, color='blue', label='Monte Carlo')
 plt.axhline(0, color='red', linestyle='--')
@@ -54,9 +53,9 @@ plt.title('Prediction Error vs True Monte Carlo Price')
 plt.grid(True)
 plt.legend()
 plt.tight_layout()
+plt.savefig("figures/PredErrorMC", dpi=300, bbox_inches='tight')
 plt.show()
 
-# Plot Binomial error
 plt.figure(figsize=(8,6))
 plt.scatter(y_true[:, 1], error_binomial, alpha=0.5, color='green', label='Binomial')
 plt.axhline(0, color='red', linestyle='--')
@@ -66,4 +65,5 @@ plt.title('Prediction Error vs True Binomial Price')
 plt.grid(True)
 plt.legend()
 plt.tight_layout()
+plt.savefig("figures/PredErrorBinom.png", dpi=300, bbox_inches='tight')
 plt.show()
