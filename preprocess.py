@@ -4,8 +4,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 
 def preprocess_data(df):
-    X = df.drop(columns=["binomial_price", "mc_price"])
-    y = df["mc_price", "binomial_price"]
+    X = df[['spot', 'strike', 'vol', 'maturity_days', 'rate', 'div_yield']].values
+    y = df[['mc_price', 'binomial_price']].values
 
     X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.36, random_state=0)
     X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=20/36, random_state=0)
